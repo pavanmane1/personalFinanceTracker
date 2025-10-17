@@ -1,0 +1,155 @@
+/* src/components/loading/LoadingSpinner.css */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.loading-spinner--overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+.loading-spinner__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.loading-spinner__animation {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.loading-spinner__dot {
+    border-radius: 50%;
+    animation: loading-bounce 1.4s ease-in-out infinite both;
+}
+
+.loading-spinner__dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.loading-spinner__dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+/* Sizes */
+.loading-spinner--small .loading-spinner__dot {
+    width: 6px;
+    height: 6px;
+}
+
+.loading-spinner--medium .loading-spinner__dot {
+    width: 8px;
+    height: 8px;
+}
+
+.loading-spinner--large .loading-spinner__dot {
+    width: 12px;
+    height: 12px;
+}
+
+/* Variants */
+.loading-spinner--primary .loading-spinner__dot {
+    background-color: #3b82f6;
+}
+
+.loading-spinner--secondary .loading-spinner__dot {
+    background-color: #6b7280;
+}
+
+.loading-spinner--success .loading-spinner__dot {
+    background-color: #10b981;
+}
+
+.loading-spinner--danger .loading-spinner__dot {
+    background-color: #ef4444;
+}
+
+.loading-spinner--white .loading-spinner__dot {
+    background-color: #ffffff;
+}
+
+.loading-spinner__text {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.loading-spinner--primary .loading-spinner__text {
+    color: #3b82f6;
+}
+
+.loading-spinner--secondary .loading-spinner__text {
+    color: #6b7280;
+}
+
+.loading-spinner--success .loading-spinner__text {
+    color: #10b981;
+}
+
+.loading-spinner--danger .loading-spinner__text {
+    color: #ef4444;
+}
+
+.loading-spinner--white .loading-spinner__text {
+    color: #ffffff;
+}
+
+/* Animation */
+@keyframes loading-bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Alternative spinner style - Ring */
+.loading-spinner--ring .loading-spinner__animation {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-spinner--ring.loading-spinner--small .loading-spinner__animation {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+}
+
+.loading-spinner--ring.loading-spinner--large .loading-spinner__animation {
+    width: 60px;
+    height: 60px;
+    border-width: 4px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
