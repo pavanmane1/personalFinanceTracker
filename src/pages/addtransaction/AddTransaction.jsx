@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaTimes } from 'react-icons/fa';
-import './addTransaction.css';
+import './AddTransaction.css';
 const TransactionForm = ({
     isOpen,
     onClose,
