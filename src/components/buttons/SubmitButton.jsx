@@ -10,7 +10,7 @@ const SubmitButton = memo(({ isLoading, children }) => (
         {isLoading ? (
             <>
                 <div className="spinner" aria-hidden="true"></div>
-                Creating Account...
+                Loading...
             </>
         ) : (
             children
