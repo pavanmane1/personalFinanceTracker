@@ -95,7 +95,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
     // Logout functionality
     const handleLogout = () => {
         dispatch(logout());
-        navigate('/login');
+        navigate('/');
     };
 
     // Render menu items
@@ -155,7 +155,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
                 {/* Sidebar Header */}
                 <div className="sidebar-header">
                     <div className="logo-section">
-                        <div className="logo">
+                        <div className="sidebar-logo">
                             <FaWallet />
                         </div>
                         {!isCollapsed && (
