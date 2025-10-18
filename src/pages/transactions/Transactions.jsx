@@ -16,7 +16,7 @@ import TransactionFilters from '../../components/transactionFilter/TransactionFi
 import TransactionTable from '../../components/transactionTable/TransactionTable';
 import ErrorAlert from '../../components/errorAlert/ErrorAleart';
 import ShowAlert from '../../components/ShowAlert/ShowAlert';
-import './transaction.css';
+import './Transaction.css';
 
 function Transactions() {
     const dispatch = useDispatch();
