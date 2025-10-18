@@ -13,7 +13,7 @@ import {
 
 import TransactionForm from '../addtransaction/AddTransaction';
 import TransactionFilters from '../../components/transactionFilter/TransactionFilter';
-import TransactionTable from '../../components/transactionTable/transactionTable';
+import TransactionTable from '../../components/transactionTable/TransactionTable';
 import ErrorAlert from '../../components/errorAlert/ErrorAleart';
 import ShowAlert from '../../components/ShowAlert/ShowAlert';
 import './transaction.css';

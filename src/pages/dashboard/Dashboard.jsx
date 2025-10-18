@@ -12,7 +12,7 @@ import {
 
 import { fetchDashboardData } from '../../features/dashboard/DashoboardSlice';
 import SummaryCard from '../../components/summeryCard/SummeryCard';
-import TransactionItem from '../../components/transactionItems/transactionItem';
+import TransactionItem from '../../components/transactionItems/TransactionItem';
 import MonthlyChart from '../../components/charts/monthlyChart/MonthlyChart';
 import ExpenseChart from '../../components/charts/expenseChart/ExpenseChart';
 import './Dashboard.css';

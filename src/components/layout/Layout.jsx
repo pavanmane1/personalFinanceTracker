@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Sidebar from '../sidebar/sidebar';
-import './layout.css';
+import Sidebar from '../sidebar/Sidebar';
+import './Layout.css';
 import { ToastContainer } from 'react-toastify';
-import Navbar from '../navbar/Navbar';
 const Layout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const location = useLocation();

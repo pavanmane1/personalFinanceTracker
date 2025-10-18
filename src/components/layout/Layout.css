@@ -4,7 +4,7 @@
     min-height: 100vh;
     overflow-x: hidden;
     /* prevent horizontal scroll */
-}
+}sidebar
 
 .main-container {
     flex: 1;
