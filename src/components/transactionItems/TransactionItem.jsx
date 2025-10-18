@@ -66,7 +66,7 @@ const TransactionItem = ({ transaction }) => {
                     {transaction.description}
                 </div>
                 <div className="transaction-category">
-                    {transaction.category_name || 'Unknown'} • {formatDate(transaction.date)}
+                    {transaction.category_name || 'Unknown'} • {formatDate(transaction.transaction_date)}
                 </div>
             </div>
             <div className={`transaction-amount ${getAmountColor()}`}>

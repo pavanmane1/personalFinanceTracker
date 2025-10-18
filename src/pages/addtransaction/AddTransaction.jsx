@@ -43,12 +43,12 @@ const TransactionForm = ({
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="date">Date</label>
+                        <label htmlFor="transaction_date">Date</label>
                         <input
-                            id="date"
+                            id="transaction_date"
                             type="date"
-                            value={transaction.date}
-                            onChange={(e) => onChange('date', e.target.value)}
+                            value={transaction.transaction_date}
+                            onChange={(e) => onChange('transaction_date', e.target.value)}
                             required
                         />
                     </div>

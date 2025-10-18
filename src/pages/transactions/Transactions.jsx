@@ -33,7 +33,7 @@ function Transactions() {
     });
     const [newTransaction, setNewTransaction] = useState({
         amount: '',
-        date: '',
+        transaction_date: '',
         description: '',
         categoryId: '',
     });
@@ -50,7 +50,7 @@ function Transactions() {
         if (!transactions || !Array.isArray(transactions)) return [];
         return transactions.map(transaction => ({
             id: transaction.id,
-            date: transaction.date,
+            transaction_date: transaction.transaction_date,
             description: transaction.description,
             category: transaction.category_name,
             amount: parseFloat(transaction.amount),
@@ -65,12 +65,12 @@ function Transactions() {
         let filtered = formattedTransactions;
 
         if (filters.startDate) {
-            filtered = filtered.filter(t => new Date(t.date) >= new Date(filters.startDate));
+            filtered = filtered.filter(t => new Date(t.transaction_date) >= new Date(filters.startDate));
         }
         if (filters.endDate) {
             const endDate = new Date(filters.endDate);
             endDate.setHours(23, 59, 59, 999);
-            filtered = filtered.filter(t => new Date(t.date) <= endDate);
+            filtered = filtered.filter(t => new Date(t.transaction_date) <= endDate);
         }
         if (filters.type) filtered = filtered.filter(t => t.type === filters.type);
         if (filters.category) {
@@ -90,7 +90,7 @@ function Transactions() {
 
     // Handlers
     const handleAddTransaction = () => {
-        setNewTransaction({ amount: '', date: '', description: '', categoryId: '' });
+        setNewTransaction({ amount: '', transaction_date: '', description: '', categoryId: '' });
         setShowModal(true);
     };
 
@@ -99,7 +99,7 @@ function Transactions() {
         setEditingTransaction(originalTransaction);
         setNewTransaction({
             amount: originalTransaction.amount,
-            date: originalTransaction.date.split('T')[0],
+            transaction_date: originalTransaction.transaction_date.split('T')[0],
             description: originalTransaction.description,
             categoryId: originalTransaction.category_id.toString(),
         });
@@ -133,9 +133,9 @@ function Transactions() {
 
     // Save (Add) Transaction
     const handleSaveTransaction = async () => {
-        const { amount, date, description, categoryId } = newTransaction;
+        const { amount, transaction_date, description, categoryId } = newTransaction;
 
-        if (!amount || !date || !description || !categoryId) {
+        if (!amount || !transaction_date || !description || !categoryId) {
             ShowAlert('Please fill all fields', 'warning');
             return;
         }
@@ -143,13 +143,13 @@ function Transactions() {
         try {
             await dispatch(createTransaction({
                 amount: parseFloat(amount),
-                date,
+                transaction_date,
                 description,
                 categoryId: parseInt(categoryId)
             })).unwrap();
 
             setShowModal(false);
-            setNewTransaction({ amount: '', date: '', description: '', categoryId: '' });
+            setNewTransaction({ amount: '', transaction_date: '', description: '', categoryId: '' });
             dispatch(fetchTransactions());
 
             ShowAlert('Transaction added successfully!', 'success');
@@ -161,8 +161,8 @@ function Transactions() {
 
     // Update Transaction
     const handleUpdateTransaction = async () => {
-        const { amount, date, description, categoryId } = newTransaction;
-        if (!amount || !date || !description || !categoryId) {
+        const { amount, transaction_date, description, categoryId } = newTransaction;
+        if (!amount || !transaction_date || !description || !categoryId) {
             ShowAlert('Please fill all fields', 'warning');
             return;
         }
@@ -172,7 +172,7 @@ function Transactions() {
                 id: editingTransaction.id,
                 transactionData: {
                     amount: parseFloat(amount),
-                    date,
+                    transaction_date,
                     description,
                     categoryId: parseInt(categoryId)
                 }
@@ -180,7 +180,7 @@ function Transactions() {
 
             setShowEditModal(false);
             setEditingTransaction(null);
-            setNewTransaction({ amount: '', date: '', description: '', categoryId: '' });
+            setNewTransaction({ amount: '', transaction_date: '', description: '', categoryId: '' });
             dispatch(fetchTransactions());
 
             ShowAlert('Transaction updated successfully!', 'success');
@@ -253,7 +253,7 @@ function Transactions() {
                 onClose={() => {
                     setShowEditModal(false);
                     setEditingTransaction(null);
-                    setNewTransaction({ amount: '', date: '', description: '', categoryId: '' });
+                    setNewTransaction({ amount: '', transaction_date: '', description: '', categoryId: '' });
                 }}
                 transaction={newTransaction}
                 onChange={handleChange}
