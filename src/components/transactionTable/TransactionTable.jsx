@@ -13,7 +13,7 @@ const TransactionTable = ({
     const columns = useMemo(() => [
         {
             header: 'Date',
-            key: 'date',
+            key: 'transaction_date',
             render: value => new Date(value).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
