@@ -1,6 +1,6 @@
 // src/components/loading/LoadingSpinner.jsx
 import React from 'react';
-import './loadingSpiner.css';
+import './LoadingSpiner.css';
 
 const LoadingSpinner = ({
     size = 'medium',

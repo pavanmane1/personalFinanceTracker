@@ -4,7 +4,7 @@ import PrivateRoute from '../private/PrivateRoutes';
 import { Navigate } from 'react-router-dom';
 
 // Lazy load all components
-const Layout = lazy(() => import('../../components/layout/layout'));
+const Layout = lazy(() => import('../../components/layout/Layout'));
 const Login = lazy(() => import('../../pages/Login/Login'));
 const Register = lazy(() => import('../../pages/register/Register'));
 const Dashboard = lazy(() => import('../../pages/dashboard/Dashboard'));
