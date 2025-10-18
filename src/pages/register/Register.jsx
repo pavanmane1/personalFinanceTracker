@@ -103,7 +103,7 @@ const Register = () => {
             setTimeout(() => navigate('/login'), 1500);
         } catch (error) {
             console.error("Registration failed:", error);
-            ShowAlert(`❌ Error: ${error?.message || 'Registration failed'}`, "error");
+            ShowAlert(` Error: ${error || 'Registration failed'}`, "error");
         } finally {
             setIsLoading(false);
         }
